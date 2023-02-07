@@ -1,0 +1,40 @@
+{% set name = "xmlformatter" %}
+{% set version = "0.2.4" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 6d93c4bc04cffb1d4cf6eb9d9034018e9b264e4554269e7da67539ba4bff03f5
+
+build:
+  number: 0
+  entry_points:
+    - xmlformat=xmlformatter:cli
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - pip
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - xmlformat --help
+
+about:
+  home: "http://pamoller.com/xmlformatter.html"
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: "Format and compress XML documents"
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - pradal
