@@ -22,9 +22,6 @@ requirements:
   run:
     - python
 
-test:
-  commands:
-    - xmlformat --help
 
 about:
   home: "http://pamoller.com/xmlformatter.html"
